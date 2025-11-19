@@ -21,7 +21,10 @@ export async function Create(req: Request, res: Response) {
 
 export async function ReadFromId(req: Request, res: Response) {
     try {
-        const pokemon = await PokemonModel.findById(req.params.id);
+        const pokemon = await PokemonModel.findById(req.params.id)
+        .populate("types")
+        .populate("attacks")
+        .populate("evolutions");;
         res.status(200).json(pokemon);
     } catch (error) {
         console.error(error);
