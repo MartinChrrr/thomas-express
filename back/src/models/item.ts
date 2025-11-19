@@ -9,7 +9,7 @@ export interface IItem extends Document {
 const ItemSchema = new Schema<IItem>(
   {
     name: { type: String, required: true, trim: true },
-    categories: [{ type: String, trim: true }], // e.g. ["healing", "battle", "key"]
+    categories: [{ type: String, trim: true }], 
     description: { type: String },
   }
 );
