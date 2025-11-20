@@ -21,7 +21,8 @@ export async function Create(req: Request, res: Response) {
 
 export async function ReadFromId(req: Request, res: Response) {
     try {
-        const attack = await AttackModel.findById(req.params.id);
+        const attack = await AttackModel.findById(req.params.id)
+        .populate("type");
         res.status(200).json(attack);
     } catch (error) {
         console.error(error);
@@ -33,7 +34,8 @@ export async function ReadFromId(req: Request, res: Response) {
 
 export async function ReadAll(req: Request, res: Response) {
     try {
-        const attacks = await AttackModel.find();
+        const attacks = await AttackModel.find()
+        .populate("type");
         res.status(200).json(attacks);
     } catch (error) {
         console.error(error);

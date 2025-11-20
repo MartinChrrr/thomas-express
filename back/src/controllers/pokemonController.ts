@@ -24,7 +24,7 @@ export async function ReadFromId(req: Request, res: Response) {
         const pokemon = await PokemonModel.findById(req.params.id)
         .populate("types")
         .populate("attacks")
-        .populate("evolutions");;
+        .populate("evolutions");
         res.status(200).json(pokemon);
     } catch (error) {
         console.error(error);
@@ -36,7 +36,10 @@ export async function ReadFromId(req: Request, res: Response) {
 
 export async function ReadAll(req: Request, res: Response) {
     try {
-        const pokemons = await PokemonModel.find();
+        const pokemons = await PokemonModel.find()       
+        .populate("types")
+        .populate("attacks")
+        .populate("evolutions");
         res.status(200).json(pokemons);
     } catch (error) {
         console.error(error);

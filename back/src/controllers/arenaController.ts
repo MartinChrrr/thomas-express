@@ -16,7 +16,9 @@ export async function Create(req: Request, res: Response) {
 
 export async function ReadFromId(req: Request, res: Response) {
     try {
-        const arena = await ArenaModel.findById(req.params.id);
+        const arena = await ArenaModel.findById(req.params.id)
+        .populate("primaryType")
+        .populate("trainers");
         res.status(200).json(arena);
     } catch (error) {
         console.error(error);

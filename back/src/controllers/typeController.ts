@@ -16,7 +16,9 @@ export async function Create(req: Request, res: Response) {
 
 export async function ReadFromId(req: Request, res: Response) {
     try {
-        const type = await TypeModel.findById(req.params.id);
+        const type = await TypeModel.findById(req.params.id)
+        .populate("weaknesses")
+        .populate("resistances");
         res.status(200).json(type);
     } catch (error) {
         console.error(error);
@@ -28,7 +30,9 @@ export async function ReadFromId(req: Request, res: Response) {
 
 export async function ReadAll(req: Request, res: Response) {
     try {
-        const types = await TypeModel.find();
+        const types = await TypeModel.find()
+        .populate("weaknesses")
+        .populate("resistances");;
         res.status(200).json(types);
     } catch (error) {
         console.error(error);

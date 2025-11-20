@@ -22,7 +22,10 @@ export async function Create(req: Request, res: Response) {
 
 export async function ReadFromId(req: Request, res: Response) {
     try {
-        const trainer = await TrainerModel.findById(req.params.id);
+        const trainer = await TrainerModel.findById(req.params.id)
+        .populate("activePokemons")
+        .populate("capturedPokemons")
+        .populate("items");
         res.status(200).json(trainer);
     } catch (error) {
         console.error(error);
@@ -34,7 +37,10 @@ export async function ReadFromId(req: Request, res: Response) {
 
 export async function ReadAll(req: Request, res: Response) {
     try {
-        const trainers = await TrainerModel.find();
+        const trainers = await TrainerModel.find()     
+        .populate("activePokemons")
+        .populate("capturedPokemons")
+        .populate("items");;
         res.status(200).json(trainers);
     } catch (error) {
         console.error(error);
