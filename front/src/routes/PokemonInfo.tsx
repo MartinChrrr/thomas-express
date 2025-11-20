@@ -44,7 +44,7 @@ function PokemonInfo() {
   }
 
 
-  if(pokemon)return <p>{pokemon.name}  {pokemon.height}</p>
+  if(pokemon)return <p>{pokemon.name} {pokemon.types.map((t)=> `type: ${t.name}`)} {pokemon.height}</p>
   return (
     <div>
         <p>test params: {id}</p>

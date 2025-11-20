@@ -30,10 +30,10 @@ function PokemonItem({pokemon, onSee, onEdit, onDelete} : PokemonItemProps) {
         <Link to={{pathname: `/pokemonInfo/${pokemon._id}`}} 
         className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive
         bg-blue-500 h-9 px-4 py-2  text-white hover:bg-blue-400 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60">
-          VoirPlus</Link>
+          Voir Plus</Link>
        
         <Button variant="destructive" onClick={() => onDelete(pokemon._id)}>Supprimer</Button>
-        <Link to={{pathname: `/pokemonInfo/${pokemon._id}`}} 
+        <Link to={{pathname: `/pokemonModify/${pokemon._id}`}} 
         className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive
         bg-yellow-500 h-9 px-4 py-2  text-white hover:bg-yellow-400 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60">
           Modifier</Link>
