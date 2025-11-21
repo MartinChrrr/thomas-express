@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import { connectDB } from "./config/database.js";
+
 import cors from "cors"
 
 import routerArena from "./routes/arenaRoutes.js";
@@ -12,7 +12,7 @@ import routerType from "./routes/typeRoutes.js";
 
 
 dotenv.config();
-connectDB();
+// connectDB();
 
 const app = express();
 app.use(express.json());
