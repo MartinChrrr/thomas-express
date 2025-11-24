@@ -46,8 +46,8 @@ function App() {
       </div>
   }
   return (
-    <div>
-      <p>app</p>
+    <div className='flex flex-col justify-center'>
+      <h1 className='text-2xl font-bold'>Pokemon's List</h1>
       <PokemonList pokemons={pokemons} onSee={handleSeeMore} onDelete={handleDelete} onEdit={handleEdit}/>
     </div>
   )

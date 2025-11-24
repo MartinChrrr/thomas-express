@@ -44,10 +44,40 @@ function PokemonInfo() {
   }
 
 
-  if(pokemon)return <p>{pokemon.name} {pokemon.types.map((t)=> `type: ${t.name}`)} {pokemon.height}</p>
+  if(!pokemon)return <p>Error Loading your pokemon</p>
   return (
-    <div>
-        <p>test params: {id}</p>
+    <div className="flex flex-col w-2/3 m-auto">
+      <table className="table-fixed mt-2">
+        <thead className="text-center">Information on: {pokemon.name}</thead>
+        <tr>
+          <td>Descitption:</td>
+          <td>{pokemon.description ? pokemon.description : "No information on this pokemon"}</td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>{pokemon.gender ? pokemon.gender : "Unknown"}</td>
+        </tr>
+        <tr>
+          <td>Type:</td>
+          <td>{pokemon.types.length ===0 ? "Unknown types" : pokemon.types.map((t) => t.name)}</td>
+        </tr>
+        <tr>
+          <td>Height:</td>
+          <td>{pokemon.height ? pokemon.height + " cm" : "Unknown"}</td>
+        </tr>
+        <tr>
+          <td>Weight:</td>
+          <td>{pokemon.weight ? pokemon.weight + " kg" : "Unknown"}</td>
+        </tr>
+        
+      </table>
+
+      {/* <div className="flex flex-col border-1 border-black">
+        <div className="flex flex-row">
+          <p>Type: </p>
+          <p>{pokemon.types.map((t) => t.name)}</p>
+        </div>
+      </div> */}
     </div>
   )
 }
